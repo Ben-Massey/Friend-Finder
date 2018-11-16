@@ -10,6 +10,7 @@ var PORT = process.env.PORT || 3000;
 // Set up middleware.
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static(__dirname + '/app/public'));
 
 // Import routes.
 require('./app/routing/apiRoutes')(app);
