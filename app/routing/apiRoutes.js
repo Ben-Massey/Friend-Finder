@@ -8,7 +8,7 @@ module.exports = function(app) {
         res.json(friendData);
     });
 
-    // POST route for /api/friends takes in the new data and responds with the most compatible match.
+    // POST route for /api/friends takes in the new data and responds with the match.
     app.post('/api/friends', function(req, res) {
         // Our user is the data sent in the request.
         var thisUser = req.body;
@@ -16,7 +16,6 @@ module.exports = function(app) {
 
         // If there is more than one friend to compare to,
         if (friendData.length > 1) {
-            // Step through these potential friends.
             friendData.forEach(function(user) {
                 var totalDifference = 0;
 
@@ -34,7 +33,7 @@ module.exports = function(app) {
             // Find the minimum difference score.
             var minimumDifference = Math.min.apply(null, differences);
 
-            // Since there may be more than one potential friend with that score, create an array.
+            // array with all matches.
             var bestMatches = [];
 
             // For each item in differences, if it is equal to the minimumDifference, add the corresponding friendData to the bestMatches array.
@@ -51,7 +50,7 @@ module.exports = function(app) {
             res.json(friendData);
         }
 
-        // Once you're done comparing, add the new user to the potential friends data.
+        // Once you're done comparing, add the new user to the friends data.
         friendData.push(thisUser);
 
     });
