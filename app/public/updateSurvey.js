@@ -9,7 +9,7 @@ $(document).ready(function() {
         'You have a good relationship with my family.',
         'You let other people influence your actions.',
         'You misplace your things often.',
-        'You are mpre a dog person than a cat person.',
+        'You are more a dog person than a cat person.',
         'You procrastinate more often than not.'
     ];
 
